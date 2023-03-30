@@ -40,14 +40,13 @@ vector<int> dijkstra (int src, int dest, vector<vector<dest_weight>>  &graph,
     //init src node to 0 cost and add to pqueue to be explored first
     unv_ls(src, 0) = 0;  
     unv_ls(src, 1) = -1; //prev of -1 means this node is source
-    // vis_ls(src,0) = 0;
-    // vis_ls(src,1) = -1;
+
     min_unv_costs.push(make_pair(0,src)); //pqueue insertion is slow so it should not replace unv_ls matrix
 
     //if we have visited the destination and added it to the vis_ls, stop searching
     bool vis_dest = false;
     while (!vis_dest)
-    {   
+    {  
         int visiting_node =  min_unv_costs.top().second;
         while (vis_ls(visiting_node,0) != -2)
         {
